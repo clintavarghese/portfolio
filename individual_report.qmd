@@ -1,0 +1,255 @@
+---
+title: "Final Individual Report"
+format: html
+editor: visual
+execute:
+  eval: false
+---
+
+#### Title: Impact of Traffic Calming Measures on NYC Property Values
+
+------------------------------------------------------------------------
+
+### **Introduction**
+
+Urban planning interventions, such as traffic calming measures, play a crucial role in enhancing transportation safety and efficiency. However, their influence extends far beyond these domains, significantly impacting neighborhood dynamics, quality of life, and real estate values. This project investigates the relationship between traffic calming measures and property prices in New York City. Specifically, it examines whether streets with implemented traffic-calming interventions show measurable changes in property values over time.
+
+Our study leverages both geospatial and financial data to explore this relationship. Using advanced statistical visualizations and dynamic mapping, we aim to quantify and visualize these impacts. By focusing on specific streets in the Park Slope neighborhood, known for its active adoption of traffic-calming strategies, this research seeks to provide actionable insights for urban planners, policymakers, and real estate stakeholders.
+
+In this report, I want to share the journey of our project—the methods we tried and the challenges we faced along the way. I was responsible for gathering geospatial data and creating basic statistical visualizations. This isn’t just a story of success; it’s also about the missteps, the lessons learned, and how those failures shaped our progress.
+
+### **Data Acquisition**
+
+#### **Datasets**
+
+1.  **Financial Data**\
+    The financial dataset was sourced from the [NYC Property Assessment Roll Archives](https://www.nyc.gov/site/finance/property/property-assessment-roll-archives.page). It contains detailed property values spanning from 2010 to 2019, organized by borough, block, and lot (BBL). This data forms the foundation for analyzing property value trends over time. Data Acquisition and Data Cleaning was performed by Jason and a clean dataset was created to csv format
+
+2.  **Geospatial Data**\
+    GIS shapefiles delineating New York City’s geographic boundaries were obtained from [NYC Planning Lot Selector](https://lotselector.planning.nyc.gov). These files provide precise geospatial details for each BBL, enabling accurate spatial analyses.
+
+#### **Data Challenges**
+
+The initial strategy relied on using shape files available through the [NYC Open Data API](https://nycmaps.nyc.gov/datasets/nyc::building/api). However, these files lacked the granularity required for our BBL-specific mapping. After rigorous exploration and trial, the [NYC Planning Lot Selector](https://lotselector.planning.nyc.gov/) emerged as the most reliable source for obtaining high-resolution shape files tailored to our needs.
+
+------------------------------------------------------------------------
+
+### **Methods**
+
+#### **Loading Libraries**
+
+To perform data analysis and visualization, we utilized the following R libraries:
+
+```{r}
+library(tidyverse)
+library(dplyr)
+library(leaflet)
+library(sf)
+library(scales)
+library(ggridges)
+library(viridis)
+library(hrbrthemes)
+```
+
+#### **Geospatial Data Processing**
+
+Shape files representing selected streets were downloaded as zipped files. A reusable R function, `read_shp_from_zip`, was developed to streamline the extraction and conversion of these files into geometric data using the `sf` package.\
+
+Here’s an example:
+
+```{r}
+read_shp_from_zip <- function(zippedURL) {
+  td <- tempdir()
+  zip_contents <- unzip(zippedURL, exdir = td)
+  fname_shp <- zip_contents[grepl("\\.shp$", zip_contents)]
+  read_sf(fname_shp)
+}
+```
+
+Shape files for streets such as Prospect Park West (PPW), Prospect Park Southwest (PPSW), and Fifth Avenue.8th Avenue, 6th Avenue were read into R, combined using `rbind`, and merged with the financial dataset using `left_join` on the common identifiers (BORO, BLOCK, LOT).
+
+#### **Dynamic Mapping**
+
+To visualize property value changes dynamically:\
+1. A function was created to allow users to input two years and view property value differences.\
+2. A color-coded system (green for increases, red for decreases) was applied to display trends using `leaflet`.
+
+Here’s an excerpt of the mapping function:
+
+```{r}
+visualise_test <- function(combined_file, year1, year2) {
+  data <- st_as_sf(combined_file, wkt = "geometry", crs = 4326)
+  year1_last_digit <- year1 %% 100
+  year2_last_digit <- year2 %% 100
+  value_col_1 <- paste0("VALUE_", year1_last_digit)
+  value_col_2 <- paste0("VALUE_", year2_last_digit)
+  data <- data |>
+    mutate(difference = !!sym(value_col_2) - !!sym(value_col_1))
+  difference_palette <- colorNumeric(
+    palette = c("red", "white", "green"),
+    domain = data$difference,
+    na.color = "gray"
+  )
+  data <- data |> mutate(fill_color = alpha(difference_palette(difference), alpha = 0.5))
+  leaflet(data) |>
+    addTiles() |>
+    addPolygons(
+      color = "black", weight = 1,
+      fillOpacity = 0.7,
+      fillColor = ~fill_color,
+      popup = ~ paste("Difference (", year1, "-", year2, "):", difference)
+    ) |>
+    addLegend(
+      "bottomright",
+      pal = difference_palette,
+      values = data$difference,
+      title = paste("Difference (", year1, "-", year2, ")"),
+      opacity = 1
+    ) |>
+    setView(
+      lng = mean(st_coordinates(data)[, 1]),
+      lat = mean(st_coordinates(data)[, 2]),
+      zoom = 12
+    )
+}
+```
+
+#### **Data Challenges**
+
+**Spatial Resolution and CRS Compatibility** It took a lot trails and errors to figure out the CRS compatibility. `st_as_sf(df, wkt = "geometry", crs = 4326)` **Dynamic Column Referencing** It was challenging to figure out how the `value_col_1` which is in string data type to use to constructing column names dynamically using `!!sym()`
+
+![](images/mapplot.png){style="width:80%; box-shadow: -1px 1px 2px rgba(0, 0, 0, 0.5); display: block; margin: auto;"}
+
+#### **Statistical Visualization**
+
+Two key visualizations were developed:\
+1. **Ridge Plots**\
+Ridge plots, generated using `ggridges`, allow comparison of property value differences across selected streets. This visualization highlights patterns and trends in specific neighborhoods like Park Slope.
+
+Ridge Plot Function:
+
+```{r}
+visualise_ridge <- function(combined_file, year1, year2) {
+  data <- st_as_sf(combined_file, wkt = "geometry", crs = 4326)
+  year1_last_digit <- year1 %% 100
+  year2_last_digit <- year2 %% 100
+  value_col_1 <- paste0("VALUE_", year1_last_digit)
+  value_col_2 <- paste0("VALUE_", year2_last_digit)
+  data <- data |> mutate(difference = !!sym(value_col_2) - !!sym(value_col_1))
+  ggplot(data, aes(x = difference, y = street, fill = ..x..)) +
+    geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +
+    scale_fill_viridis(name = "Difference", option = "C") +
+    labs(
+      title = paste("Ridge Plot of Differences in Property Values (", year1, "-", year2, ")", sep = ""),
+      x = "Difference in Property Value",
+      y = "Street"
+    ) +
+    theme_ipsum() +
+    theme_ridges()
+}
+```
+
+2.  **Box Plots**\
+    Box plots were used to summarize percentage changes in property values by street. Streets with traffic-calming measures (e.g., Prospect Park West, Fifth Avenue) were analyzed in detail.
+
+------------------------------------------------------------------------
+
+### **Integration with Shiny Application**
+
+My functions were not easily ready to integrate with Shiny App. Jason did a wonderful job creating a strong layout for the app and also integrating the Geospatial Data with the Shiny APP.
+
+I implemented dynamic visualizations for ridge plots, box plots, and summary statistics. Key outputs included:\
+- **Ridge Plot**: `plotOutput("ridge_plot")`\
+- **Box Plot**: `plotOutput("box_plot")`\
+- **Summary Statistics**: `dataTableOutput("summary_by_street")`
+
+Summary statistics by street were calculated to display mean and standard deviation of percentage changes. For instance:
+
+```{r}
+percentage_changedf <- combined_t |>
+  select(STR_NAME, change) |>
+  filter(STR_NAME %in% c("PROSPECT PARK WEST", "8 AVENUE", "7 AVENUE", "6 AVENUE", "5 AVENUE", "PROSPECT PARK SW")) |>
+  mutate(percentage_change = change * 100) |>
+  rename(`Street Name` = STR_NAME)
+
+summary_by_street <- percentage_changedf |>
+  group_by(`Street Name`) |>
+  summarize(
+    `Mean % Change` = round(mean(percentage_change, na.rm = TRUE), 2),
+    `SD % Change` = round(sd(percentage_change, na.rm = TRUE), 2)
+  )
+```
+
+Data Table for Summary Statistics Integrated With Shiny App
+
+```{r}
+
+output$summary_by_street <- DT::renderDT({
+  datatable(summary_by_street, caption = "Summary of Percentage Change by Street", options = list(
+    dom = "t",
+    paging = FALSE,
+    ordering = FALSE
+  ))
+})
+```
+
+Visualization of Percentage Change by Street Name Integrated with Shiny App
+
+```{r}
+output$box_plot <- renderPlot({
+  ggplot(percentage_changedf, aes(x = `Street Name`, y = percentage_change)) +
+    geom_boxplot() +
+    labs(title = "Percentage Change by Street Name", x = "Street Name", y = " Percentage Change") +
+    theme_minimal() +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1))
+})
+```
+
+Ridge Plot: Percentage Change in Property Values Integrated with Shiny App
+
+```{r}
+output$ridge_plot <- renderPlot({
+  data <- combined_t |>
+    select(STR_NAME, change) |>
+    filter(STR_NAME == c("PROSPECT PARK WEST", "8 AVENUE", "7 AVENUE", "6 AVENUE", "5 AVENUE", "PROSPECT PARK SW")) |>
+    arrange(STR_NAME)
+  ridge_data <- data |> pivot_longer(
+    cols = change,
+    names_to = "Metric",
+    values_to = "Value"
+  )
+
+  # Generate the ridge plot
+  ggplot(ridge_data, aes(x = Value * 100, y = STR_NAME, fill = ..x..)) +
+    geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +
+    scale_fill_viridis(name = "Difference", option = "C") +
+    labs(
+      title = paste("Ridge Plot of Percentage Change in Property Values (", year_1, "-", year_2, ")", sep = ""),
+      x = " % Change in Property Value",
+      y = "Street"
+    ) +
+    theme_ipsum() +
+    theme_ridges() +
+    theme(legend.position = "none")
+})
+```
+
+------------------------------------------------------------------------
+
+### **Debugging and Troubleshooting**
+
+Few key issues encountered while debugging were:
+
+#### **Flattening Issue with Color Scheming**
+
+There was a problem with the color scheme where the scale flattened, resulting in inaccurate representation of extreme rates (e.g., 150%). This was resolved by adjusting the scale parameters and ensuring proper mapping of percentage values.
+
+#### **Discrepancies in Real-Estate Valuation**
+
+Challenges arose when selecting accurate real-estate values due to inconsistencies in data sources. To address this, property assessment data from the [NYC Property Assessment Roll Archives](https://www.nyc.gov/site/finance/property/property-assessment-roll-archives.page) and **Microsoft Access** were utilized to cross-reference and validate the data.
+
+------------------------------------------------------------------------
+
+### **Future Potential Work**
+
+If I were to continue this analysis, I would aim to integrate more advanced statistical techniques. Specifically, I would explore performing a paired t-test and conducting multiple linear regression analysis, incorporating additional factors something like `Percentage Change`∼`Street Name`+`ZIP`+`Year Built (by decade)`+`Building Class`+`Block`+`Total Units`.. I would also like to do a broader statistical analysis including all of NYC boroughs by incorporating bootstrapping, permutation testing etc.
