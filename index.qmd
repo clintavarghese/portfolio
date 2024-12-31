@@ -1,0 +1,26 @@
+---
+title: "Clinta Puthussery Varghese"
+image: media/headshot.jpg
+toc: false
+about: 
+  template: jolla
+  image-shape: round
+  image-width: 17em
+  links:
+    - text: LinkedIn
+      href: https://www.linkedin.com/in/clintavarghese/
+    - text: GitHub
+      href: https://github.com/clintavarghese/
+    - text: Email
+      href: mailto:clintav2@gmail.com
+---
+        
+Welcome!
+Hello and welcome to my website.
+
+My name is Clinta Puthussery Varghese.
+I am currently pursuing my second semester as a graduate student in Statistics at [Zicklin School of Business](https://zicklin.baruch.cuny.edu/) in the Baruch College, City University Of New York with an anticipated graduation in May 2026.
+
+My aspiration is to become a Data Scientist. As beauty lies in the eyes of the beholder, so too does the power of data rest in the hands of the analyst. I am dedicated to equipping myself to work with messy data, uncover insights, and ultimately contribute to making the world a better place.
+Poke around my website to learn more.
+

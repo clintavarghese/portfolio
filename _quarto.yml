@@ -1,0 +1,25 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "CLINTA PUTHUSSERY VARGHESE"
+  description:
+    Course Projects for MS Statistics
+   site-url:"https://clintavarghese.github.io/portfolio/"
+   repo-url:"https://github.com/clintavarghese/portfolio/"
+   repo-actions:[edit, source, issue]
+  navbar:
+    background: primary
+    left:
+      - href: index.qmd
+        text: Home
+      - mini.qmd
+    
+format:
+  html:
+    theme: sandstone
+    margin-left: 0em
+    toc: true
+    code-copy: true
+    toc_depth: 5
