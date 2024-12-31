@@ -15,7 +15,7 @@ website:
     - href: index.qmd
       text: Home
     - href: mini.qmd
-      text: Projects
+      text: R Project
     - href: travel.qmd
       text: Travel Diaries
     
