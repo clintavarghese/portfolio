@@ -5,32 +5,38 @@ editor: visual
 
 ## My Academic Projects in R:
 
-### **Group Projects:**
+### **Group Project:**
 
-#### [Fiscal Characteristics of Major US Public Transit Systems](https://clintavarghese.github.io/STA9750-2024-FALL/mp01.html)
+#### [Impact of Traffic Calming Measures on NYC Property Values](https://clintavarghese.github.io/portfolio/summary_report.html)
+
+This project investigates historical property tax assessment values in Park Slope and Windsor Terrace, Brooklyn, using data sourced from the [New York City Department of Finance Property Assessment Roll Archives](https://www.nyc.gov/site/finance/property/property-assessment-roll-archives.page). These archives provide a complete digital repository of property valuation data available from 2010 to the present.
+
+Our study leverages both `geospatial and financial data` to explore this relationship. Using advanced statistical visualizations and dynamic mapping, we aim to quantify and visualize these impacts. By focusing on specific streets in the **Park Slope neighborhood**, known for its active adoption of traffic-calming strategies, this research seeks to provide actionable insights for urban planners, policymakers, and real estate stakeholders.
+
+My report on Individual Contribution: [Link](https://clintavarghese.github.io/portfolio/individual_report.qmd)
 
 ### Individual Projects:
 
 ### **Descriptive Statistical Analysis:**
 
-#### [Fiscal Characteristics of Major US Public Transit Systems](https://clintavarghese.github.io/STA9750-2024-FALL/mp01.html)
+#### [What do you believe to be the most efficient transit system in the country?](https://clintavarghese.github.io/portfolio/mp01.html)
 
-I investigate the fiscal characteristics of US public transit authorities. In this project, I handle the data import and tidying; students are mainly responsible for “single table” dplyr operations (`mutate`, `group_by`, `summarize`, `select`, `arrange`, `rename`) to produce summary statistics.
+I investigated the fiscal characteristics of US public transit authorities and explored on **What do you believe to be the most efficient transit system in the country?**. In this project, I handle the data import and tidying; students are mainly responsible for “single table” dplyr operations (`mutate`, `group_by`, `summarize`, `select`, `arrange`, `rename`) to produce summary statistics.\
+
+### **Data-Based Support for Sales Pitch:** 
+
+#### [Exploratory Data Analysis and Movie Analysis](https://clintavarghese.github.io/portfolio/mp02.html)
+
+This project positioned me as a Hollywood development executive, analyzing large-scale IMDb data \~20 GB to pitch a new movie. I developed proficiency in handling large data sets and relational data structures through techniques like table `joins`, enhancing my skills in managing and interpreting extensive information. I have also explored `gganimate`,`wordcloud`,`ggplot` libraries in this project.
 
 ### **Data-Based Evaluation of Third-Party Assertion:**
 
-#### [Do Proportional Electoral College Allocations Yield a More Representative Presidency?](https://clintavarghese.github.io/STA9750-2024-FALL/mp03.html)
+#### [Do Proportional Electoral College Allocations Yield a More Representative Presidency?](https://clintavarghese.github.io/portfolio/mp03.html)
 
-In this analysis, I investigated the impact of different state-level electoral vote allocation methods on presidential election outcomes. I compared various allocation strategies, assessed fairness and proportionality, and created visualizations like red/blue electoral maps using data from the MIT Election Lab and the US Census Bureau’s TIGER repository.\
-
-### **Data-Based Support for Sales Pitch:**
-
-#### [Exploratory Data Analysis and Movie Analysis](https://clintavarghese.github.io/STA9750-2024-FALL/mp02.html)
-
-This project positioned me as a Hollywood development executive, analyzing large-scale IMDb data to pitch a new movie. I developed proficiency in handling large datasets and relational data structures through techniques like table joins, enhancing my skills in managing and interpreting extensive information.
+In this analysis, I investigated the impact of different state-level electoral vote allocation methods on presidential election outcomes. I compared various allocation strategies, assessed fairness and proportionality, and created visualizations like red/blue electoral maps using data from the `MIT Election Lab` and the `US Census Bureau’s TIGER repository`. I worked on `sf`,`leaflet`, `scales`,`maps` libraries in this project.
 
 ### **Data-Driven Decision Support:**
 
-#### [Monte Carlo-Informed Selection of CUNY Retirement Plans](https://clintavarghese.github.io/STA9750-2024-FALL/mp04.html)
+#### [Monte Carlo-Informed Selection of CUNY Retirement Plans](https://clintavarghese.github.io/portfolio/mp04.html)
 
-For this project, I conducted a comparative analysis of two CUNY retirement plans using Monte Carlo simulations. By incorporating historical financial and macroeconomic data, I assessed the probability of different retirement outcomes. This experience included working with APIs, implementing complex simulations, and applying bootstrap inference techniques to quantify prediction uncertainties.
+For this project, I conducted a comparative analysis of two CUNY retirement plans using Monte Carlo simulations. By incorporating historical financial and macroeconomic data, I assessed the probability of different retirement outcomes. This experience included working with **APIs** from `AlphaVantage and FRED` , implementing complex simulations, and applying bootstrap inference techniques to quantify prediction uncertainties.
