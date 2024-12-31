@@ -12,10 +12,12 @@ website:
   navbar:
     background: primary
     left:
-      - href: index.qmd
-        text: Home
-      - mini.qmd
-      - travel.qmd
+    - href: index.qmd
+      text: Home
+    - href: mini.qmd
+      text: Projects
+    - href: travel.qmd
+      text: Travel Diaries
     
 format:
   html:
