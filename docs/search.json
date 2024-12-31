@@ -5,5 +5,19 @@
     "title": "Clinta Puthussery Varghese",
     "section": "",
     "text": "Welcome! Hello and welcome to my website.\nMy name is Clinta Puthussery Varghese. I am currently pursuing my second semester as a graduate student in Statistics at Zicklin School of Business in the Baruch College, City University Of New York with an anticipated graduation in May 2026.\nMy aspiration is to become a Data Scientist. As beauty lies in the eyes of the beholder, so too does the power of data rest in the hands of the analyst. I am dedicated to equipping myself to work with messy data, uncover insights, and ultimately contribute to making the world a better place. Poke around my website to learn more."
+  },
+  {
+    "objectID": "mini.html",
+    "href": "mini.html",
+    "title": "Projects",
+    "section": "",
+    "text": "I investigate the fiscal characteristics of US public transit authorities. In this project, I handle the data import and tidying; students are mainly responsible for “single table” dplyr operations (mutate, group_by, summarize, select, arrange, rename) to produce summary statistics.\n\n\n\n\n\n\nIn this analysis, I investigated the impact of different state-level electoral vote allocation methods on presidential election outcomes. I compared various allocation strategies, assessed fairness and proportionality, and created visualizations like red/blue electoral maps using data from the MIT Election Lab and the US Census Bureau’s TIGER repository.\n\n\n\n\n\n\n\nThis project positioned me as a Hollywood development executive, analyzing large-scale IMDb data to pitch a new movie. I developed proficiency in handling large datasets and relational data structures through techniques like table joins, enhancing my skills in managing and interpreting extensive information.\n\n\n\n\n\n\nFor this project, I conducted a comparative analysis of two CUNY retirement plans using Monte Carlo simulations. By incorporating historical financial and macroeconomic data, I assessed the probability of different retirement outcomes. This experience included working with APIs, implementing complex simulations, and applying bootstrap inference techniques to quantify prediction uncertainties."
+  },
+  {
+    "objectID": "mini.html#my-academic-projects-in-r",
+    "href": "mini.html#my-academic-projects-in-r",
+    "title": "Projects",
+    "section": "",
+    "text": "I investigate the fiscal characteristics of US public transit authorities. In this project, I handle the data import and tidying; students are mainly responsible for “single table” dplyr operations (mutate, group_by, summarize, select, arrange, rename) to produce summary statistics.\n\n\n\n\n\n\nIn this analysis, I investigated the impact of different state-level electoral vote allocation methods on presidential election outcomes. I compared various allocation strategies, assessed fairness and proportionality, and created visualizations like red/blue electoral maps using data from the MIT Election Lab and the US Census Bureau’s TIGER repository.\n\n\n\n\n\n\n\nThis project positioned me as a Hollywood development executive, analyzing large-scale IMDb data to pitch a new movie. I developed proficiency in handling large datasets and relational data structures through techniques like table joins, enhancing my skills in managing and interpreting extensive information.\n\n\n\n\n\n\nFor this project, I conducted a comparative analysis of two CUNY retirement plans using Monte Carlo simulations. By incorporating historical financial and macroeconomic data, I assessed the probability of different retirement outcomes. This experience included working with APIs, implementing complex simulations, and applying bootstrap inference techniques to quantify prediction uncertainties."
   }
 ]

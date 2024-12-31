@@ -1,0 +1,36 @@
+---
+title: "Projects"
+editor: visual
+---
+
+## My Academic Projects in R:
+
+### **Group Projects:**
+
+#### [Fiscal Characteristics of Major US Public Transit Systems](https://clintavarghese.github.io/STA9750-2024-FALL/mp01.html)
+
+### Individual Projects:
+
+### **Descriptive Statistical Analysis:**
+
+#### [Fiscal Characteristics of Major US Public Transit Systems](https://clintavarghese.github.io/STA9750-2024-FALL/mp01.html)
+
+I investigate the fiscal characteristics of US public transit authorities. In this project, I handle the data import and tidying; students are mainly responsible for “single table” dplyr operations (`mutate`, `group_by`, `summarize`, `select`, `arrange`, `rename`) to produce summary statistics.
+
+### **Data-Based Evaluation of Third-Party Assertion:**
+
+#### [Do Proportional Electoral College Allocations Yield a More Representative Presidency?](https://clintavarghese.github.io/STA9750-2024-FALL/mp03.html)
+
+In this analysis, I investigated the impact of different state-level electoral vote allocation methods on presidential election outcomes. I compared various allocation strategies, assessed fairness and proportionality, and created visualizations like red/blue electoral maps using data from the MIT Election Lab and the US Census Bureau’s TIGER repository.\
+
+### **Data-Based Support for Sales Pitch:**
+
+#### [Exploratory Data Analysis and Movie Analysis](https://clintavarghese.github.io/STA9750-2024-FALL/mp02.html)
+
+This project positioned me as a Hollywood development executive, analyzing large-scale IMDb data to pitch a new movie. I developed proficiency in handling large datasets and relational data structures through techniques like table joins, enhancing my skills in managing and interpreting extensive information.
+
+### **Data-Driven Decision Support:**
+
+#### [Monte Carlo-Informed Selection of CUNY Retirement Plans](https://clintavarghese.github.io/STA9750-2024-FALL/mp04.html)
+
+For this project, I conducted a comparative analysis of two CUNY retirement plans using Monte Carlo simulations. By incorporating historical financial and macroeconomic data, I assessed the probability of different retirement outcomes. This experience included working with APIs, implementing complex simulations, and applying bootstrap inference techniques to quantify prediction uncertainties.
