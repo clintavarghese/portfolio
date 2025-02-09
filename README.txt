@@ -1,2 +1,2 @@
-This is mt first Mini Project.  
-url: [1](https://clintavarghese.github.io/projects/mp01.html)
+This is my repo for data analysis projects that I did for the class STA 9750 under @michaelweylandt.
+Website is :https://github.com/clintavarghese/
