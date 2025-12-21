@@ -3,7 +3,7 @@ title: "Projects"
 editor: visual
 ---
 
-## My Academic Projects in R:
+## My Academic Projects in R: EDA's
 
 ### **Group Project:**
 
@@ -13,7 +13,7 @@ This project investigates historical property tax assessment values in Park Slop
 
 Our study leverages both `geospatial and financial data` to explore this relationship. Using advanced statistical visualizations and dynamic mapping, we aim to quantify and visualize these impacts. By focusing on specific streets in the **Park Slope neighborhood**, known for its active adoption of traffic-calming strategies, this research seeks to provide actionable insights for urban planners, policymakers, and real estate stakeholders.
 
-My report on Individual Contribution: [Link](https://clintavarghese.github.io/portfolio/individual_report.qmd)
+My report on Individual Contribution: [Link](https://clintavarghese.github.io/portfolio/individual_report.html)
 
 ### Individual Projects:
 
@@ -23,7 +23,7 @@ My report on Individual Contribution: [Link](https://clintavarghese.github.io/po
 
 I investigated the fiscal characteristics of US public transit authorities and explored on **What do you believe to be the most efficient transit system in the country?**. In this project, I handle the data import and tidying; students are mainly responsible for “single table” dplyr operations (`mutate`, `group_by`, `summarize`, `select`, `arrange`, `rename`) to produce summary statistics.\
 
-### **Data-Based Support for Sales Pitch:** 
+### **Data-Based Support for Sales Pitch:**
 
 #### [Exploratory Data Analysis and Movie Analysis](https://clintavarghese.github.io/portfolio/mp02.html)
 

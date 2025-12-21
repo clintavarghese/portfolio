@@ -15,9 +15,9 @@ website:
     - href: index.qmd
       text: Home
     - href: mini.qmd
-      text: R Project
-   # - href: travel.qmd
-   #   text: Travel Diaries
+      text: Exploratory Data Analysis Projects
+    - href: timeseries.qmd
+    - text: Time Series Project
     
 format:
   html:

@@ -1,2 +1,1 @@
-This is mt first Mini Project.  
-url: [1](https://clintavarghese.github.io/projects/mp01.html)
+This is my academic portfolio for MS Statistics at Baruch College CUNY, NY.
