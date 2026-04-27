@@ -17,7 +17,7 @@ website:
     - href: mini.qmd
       text: Exploratory Data Analysis Projects
     - href: timeseries.qmd
-  
+      text: Time Series Project
     
 format:
   html:
