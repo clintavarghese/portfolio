@@ -5,5 +5,3 @@ editor: visual
 ---
 
 I love travelling. My goal is to travel to the all countries in the world. I would like to share photographs from my travels/
-
-
