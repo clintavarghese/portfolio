@@ -3,7 +3,7 @@ title: "Projects"
 editor: visual
 ---
 
-## My Academic Projects in R: EDA's
+## My Academic Projects in R:
 
 ### **Group Project:**
 
@@ -13,7 +13,7 @@ This project investigates historical property tax assessment values in Park Slop
 
 Our study leverages both `geospatial and financial data` to explore this relationship. Using advanced statistical visualizations and dynamic mapping, we aim to quantify and visualize these impacts. By focusing on specific streets in the **Park Slope neighborhood**, known for its active adoption of traffic-calming strategies, this research seeks to provide actionable insights for urban planners, policymakers, and real estate stakeholders.
 
-My report on Individual Contribution: [Link](https://clintavarghese.github.io/portfolio/individual_report.html)
+My report on Individual Contribution: [Link](https://clintavarghese.github.io/portfolio/individual_report.qmd)
 
 ### Individual Projects:
 
