@@ -1,0 +1,13 @@
+---
+title: "TimeSeries"
+author: "Clinta Varghese"
+editor: visual
+---
+
+#### [Comparative Analysis of Traditional Time Series Models vs Deep Learning Models for Mid-Term Electricity Load Forecasting (NYISO Zone J, 2020–2024)📄 View Full Paper (PDF)]("https://www.linkedin.com/in/clintavarghese/overlay/Project/1111751448/treasury/?profileId=ACoAACnT6SYByFwtV5zHrOjyyTPM_d3C85_opbk&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_projects_details%3BRcrXKVaGSpiZLNQvwXdfRA%3D%3D")
+
+#### [Forecasting Overseas Visitor Arrivals to the United States Using ARIMA Models](docs/Clinta_Varghese_Project1.pdf)
+
+<iframe src="docs/Clinta_Varghese_Project1.pdf" width="100%" height="800px">
+
+</iframe>
